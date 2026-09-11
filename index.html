@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="only light">
+<title>Emiliano Canales — UGC Creator</title>
+<style>
+  :root{
+    --bg:#F6F2E9;
+    --surface:#ECE5D6;
+    --ink:#211E19;
+    --ink-soft:#736B5C;
+    --accent:#8A6B3F;
+    --line: rgba(33,30,25,0.13);
+    --max: 720px;
+  }
+
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+
+  html, body{
+    background:var(--bg);
+  }
+  body{
+    margin:0;
+    color:var(--ink);
+    font-family:-apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Inter', sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ animation:none !important; transition:none !important; }
+  }
+
+  .wrap{
+    max-width:var(--max);
+    margin:0 auto;
+    padding:0 24px;
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    padding:48px 0 36px;
+    text-align:center;
+  }
+
+  .hero-top{
+    display:flex;
+    justify-content:center;
+    margin-bottom:16px;
+  }
+
+  .avatar{
+    width:144px;
+    height:144px;
+    border-radius:50%;
+    overflow:hidden;
+    flex-shrink:0;
+    border:1px solid var(--line);
+    background:var(--surface);
+  }
+  .avatar img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:50% 30%;
+  }
+
+  h1{
+    font-weight:600;
+    font-size:clamp(24px, 5.5vw, 30px);
+    line-height:1.15;
+    letter-spacing:-0.02em;
+    margin:0 0 10px;
+    color:var(--ink);
+  }
+  h1 em{
+    font-size:1.08em;
+  }
+
+  .lede{
+    font-size:16px;
+    line-height:1.4;
+    color:var(--ink-soft);
+    max-width:48ch;
+    margin:0 auto;
+    font-weight:400;
+  }
+
+  /* ---------- WORK ---------- */
+  .section-label{
+    font-weight:600;
+    font-size:15px;
+    color:var(--ink);
+    margin:0 0 24px;
+  }
+
+  .section-title{
+    font-weight:600;
+    font-size:26px;
+    margin:0 0 30px;
+    color:var(--ink);
+  }
+
+  .work{
+    padding:32px 0 8px;
+    border-top:1px solid var(--line);
+  }
+
+  .reel-row{
+    display:flex;
+    gap:12px;
+    overflow-x:auto;
+    scroll-snap-type:x mandatory;
+    -webkit-overflow-scrolling:touch;
+    padding:2px 2px 14px;
+    margin:0 -2px;
+  }
+  .reel-row::-webkit-scrollbar{ display:none; }
+  .reel-row{ scrollbar-width:none; }
+
+  .reel-item{
+    flex:0 0 148px;
+    scroll-snap-align:start;
+  }
+
+  .reel-item video{
+    width:100%;
+    display:block;
+    border-radius:10px;
+    background:var(--surface);
+    aspect-ratio: 9/16;
+    object-fit:cover;
+    border:1px solid var(--line);
+  }
+
+  .reel-item .reel-caption{
+    padding-top:10px;
+  }
+
+  .reel-item .brand{
+    display:block;
+    font-weight:500;
+    font-size:13px;
+    line-height:1.3;
+    color:var(--ink);
+  }
+
+  .reel-item .tag{
+    display:block;
+    font-size:12px;
+    color:var(--ink-soft);
+  }
+
+  .reel-item.placeholder video,
+  .reel-item.placeholder .placeholder-box{
+    width:100%;
+    aspect-ratio:9/16;
+    border-radius:10px;
+    border:1px dashed var(--line);
+    background:var(--surface);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    font-size:12px;
+    color:var(--ink-soft);
+    padding:12px;
+  }
+
+  .scroll-hint{
+    text-align:center;
+    font-size:13px;
+    color:var(--ink-soft);
+    padding:0 0 8px;
+  }
+
+  /* ---------- CONTACT ---------- */
+  .contact{
+    border-top:1px solid var(--line);
+    padding:44px 0 68px;
+    text-align:center;
+  }
+
+  .contact h2{
+    font-weight:600;
+    font-size:28px;
+    margin:0 0 14px;
+    color:var(--ink);
+  }
+
+  .contact p{
+    color:var(--ink-soft);
+    font-size:15px;
+    margin:0 0 28px;
+    max-width:38ch;
+    margin-left:auto;
+    margin-right:auto;
+  }
+
+  .btn-row{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    max-width:300px;
+    margin:0 auto;
+  }
+
+  .btn{
+    display:block;
+    text-decoration:none;
+    font-weight:500;
+    font-size:15px;
+    padding:14px 20px;
+    border-radius:4px;
+    transition:opacity 0.15s ease;
+  }
+  .btn:active{ opacity:0.8; }
+
+  .btn-primary{
+    background:var(--accent);
+    color:#F6F2E9;
+  }
+
+  .btn-secondary{
+    background:transparent;
+    color:var(--ink);
+    border:1px solid var(--line);
+  }
+
+  .social-row{
+    display:flex;
+    justify-content:center;
+    gap:14px;
+    margin-top:20px;
+  }
+
+  .social-icon{
+    width:44px;
+    height:44px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:var(--ink);
+    transition:opacity 0.15s ease;
+  }
+  .social-icon:active{ opacity:0.6; }
+
+  .social-icon svg{
+    width:24px;
+    height:24px;
+  }
+
+
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <section class="hero">
+    <div class="hero-top">
+      <div class="avatar">
+        <img src="assets/profile.jpg" alt="Emiliano Canales">
+      </div>
+    </div>
+
+    <h1>Emiliano Canales</h1>
+    <p class="lede">I create premium lifestyle UGC built on quality, reliable delivery, and experience brands can count on. It's content designed to stand out: high production value, careful attention to detail, and a professional finish on every video.</p>
+  </section>
+
+  <section class="work">
+    <div class="section-label">Featured work</div>
+
+    <div class="reel-row">
+      <div class="reel-item">
+        <video controls playsinline preload="metadata" poster="assets/casetify_poster.jpg">
+          <source src="assets/casetify.mp4" type="video/mp4">
+        </video>
+        <div class="reel-caption">
+          <span class="brand">CASETiFY</span>
+        </div>
+      </div>
+
+      <div class="reel-item">
+        <video controls playsinline preload="metadata" poster="assets/wildroman_poster.jpg">
+          <source src="assets/wildroman.mp4" type="video/mp4">
+        </video>
+        <div class="reel-caption">
+          <span class="brand">Wild Roman</span>
+        </div>
+      </div>
+
+      <div class="reel-item placeholder">
+        <div class="placeholder-box">Next video</div>
+        <div class="reel-caption">
+          <span class="brand">&nbsp;</span>
+          <span class="tag">&nbsp;</span>
+        </div>
+      </div>
+
+      <div class="reel-item placeholder">
+        <div class="placeholder-box">Next video</div>
+        <div class="reel-caption">
+          <span class="brand">&nbsp;</span>
+          <span class="tag">&nbsp;</span>
+        </div>
+      </div>
+    </div>
+
+    <p class="scroll-hint">Swipe for more</p>
+  </section>
+
+  <section class="contact">
+    <h2>Let's work together</h2>
+    <p>Open to brand partnerships and UGC projects.</p>
+    <div class="btn-row">
+      <a class="btn btn-primary" href="mailto:miliocanaless@gmail.com">Contact Me</a>
+    </div>
+
+    <div class="social-row">
+      <a class="social-icon" href="https://www.instagram.com/emilianoxcanales" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.6"/>
+          <circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="1.6"/>
+          <circle cx="17.2" cy="6.8" r="1.1" fill="currentColor"/>
+        </svg>
+      </a>
+      <a class="social-icon" href="https://www.tiktok.com/@miliocanales" target="_blank" rel="noopener" aria-label="TikTok">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M16.5 3c.4 2.2 2 3.9 4.2 4.2v3.1c-1.5 0-3-.4-4.2-1.3v6.4c0 3.1-2.5 5.6-5.6 5.6S5.3 18.5 5.3 15.4c0-3 2.3-5.4 5.2-5.6v3.2a2.4 2.4 0 1 0 2.5 2.4V3h3.5z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/>
+        </svg>
+      </a>
+      <a class="social-icon" href="https://youtube.com/@emilianocanales" target="_blank" rel="noopener" aria-label="YouTube">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="2.5" y="6" width="19" height="12" rx="3.5" stroke="currentColor" stroke-width="1.6"/>
+          <path d="M10.5 9.8L14.8 12l-4.3 2.2V9.8z" fill="currentColor"/>
+        </svg>
+      </a>
+    </div>
+  </section>
+
+
+</div>
+
+<script>
+  (function(){
+    var row = document.querySelector('.reel-row');
+    if(!row) return;
+    row.addEventListener('wheel', function(e){
+      // Only hijack vertical wheel scroll (plain mouse wheel).
+      // Trackpad horizontal swipes already arrive as deltaX and work natively.
+      if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+        e.preventDefault();
+        row.scrollLeft += e.deltaY;
+      }
+    }, { passive: false });
+  })();
+</script>
+</body>
+</html>
