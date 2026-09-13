@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -84,11 +85,12 @@
 
   .lede{
     font-size:16px;
-    line-height:1.4;
+    line-height:1.25;
     color:var(--ink-soft);
     max-width:48ch;
     margin:0 auto;
     font-weight:400;
+    text-wrap:balance;
   }
 
   /* ---------- WORK ---------- */
@@ -176,11 +178,11 @@
   .video-modal video{
     max-width:92vw;
     max-height:88vh;
-    aspect-ratio:9/16;
     width:auto;
-    height:88vh;
+    height:auto;
     border-radius:12px;
     background:#000;
+    object-fit:contain;
   }
   .video-modal-close{
     position:absolute;
@@ -417,13 +419,27 @@
     </div>
 
     <h1>Emiliano Canales</h1>
-    <p class="lede">I create premium lifestyle UGC built on quality, reliable delivery, and experience brands can count on. It's content designed to stand out: high production value, careful attention to detail, and a professional finish on every video.</p>
+    <p class="lede">I create premium UGC across lifestyle, health/wellness, travel, tech, and experiences, built on quality, reliable delivery, and experience brands can count on. It's content built to stand out, with high production value, careful attention to detail, and a professional finish on every video.</p>
   </section>
 
   <section class="work">
     <div class="section-label">Featured work</div>
 
     <div class="reel-row">
+      <div class="reel-item">
+        <video class="reel-video" playsinline preload="metadata" poster="assets/chicago_poster.jpg" data-src="assets/chicago.mp4">
+          <source src="assets/chicago.mp4" type="video/mp4">
+        </video>
+        <button class="expand-btn" aria-label="Expand video">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div class="reel-caption">
+          <span class="brand">CitizenM Chicago</span>
+        </div>
+      </div>
+
       <div class="reel-item">
         <video class="reel-video" playsinline preload="metadata" poster="assets/casetify_poster.jpg" data-src="assets/casetify.mp4">
           <source src="assets/casetify.mp4" type="video/mp4">
@@ -449,14 +465,6 @@
         </button>
         <div class="reel-caption">
           <span class="brand">Wild Roman</span>
-        </div>
-      </div>
-
-      <div class="reel-item placeholder">
-        <div class="placeholder-box">Next video</div>
-        <div class="reel-caption">
-          <span class="brand">&nbsp;</span>
-          <span class="tag">&nbsp;</span>
         </div>
       </div>
 
